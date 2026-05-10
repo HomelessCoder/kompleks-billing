@@ -1,0 +1,123 @@
+# Table Files Index
+
+Generated from `LanBilling_Table_Fields.md`. Each link points to one extracted table file in this directory.
+
+Duplicate source headings were preserved with filename suffixes such as `__1` and `__2`.
+
+## Tables
+
+- [1h.md](tables/1h.md) - Часовая статистика (формируется из данных в таблице userYYYYMMDD)
+- [accounts.md](tables/accounts.md) - Пользователи
+- [accounts_backup.md](tables/accounts_backup.md) - бэкап для таблицы account
+- [acc_list.md](tables/acc_list.md) - Связка учетных записей с пользователями
+- [acc_on.md](tables/acc_on.md)
+- [agreements_list.md](tables/agreements_list.md) - Список договоров пользователя с операторами. Зависит от таблиц accounts и operators
+- [as_staff.md](tables/as_staff.md) - Автономные системы учетных записей
+- [balances.md](tables/balances.md) - Зафиксированные балансы пользователей
+- [bills.md](tables/bills.md) - Платежи
+- [bonuses.md](tables/bonuses.md) - Скидки по времени
+- [calltypes.md](tables/calltypes.md) - категории звонков классифицируемых модулем Lbsupervise
+- [card_set.md](tables/card_set.md) - Наборы карт оплаты
+- [card_set_list.md](tables/card_set_list.md) - Привязка наборов карт оплаты к тарифам и агентам
+- [catalog.md](tables/catalog.md) - Описание каталогов
+- [cat_bonuses.md](tables/cat_bonuses.md) - Скидки по времени для категорий каталога
+- [cat_discounts.md](tables/cat_discounts.md) - Скидки по объему (льготы) для категорий каталога - НЕ ИСПОЛЬЗУЕТСЯ
+- [cat_groups.md](tables/cat_groups.md) - Группы каталогов
+- [cat_N.md](tables/cat_N.md) - Список сетей / кодов городов / разовых услуг N – cat_num из catalog. Набор полей может варьироваться в зависимости от типа каталога.
+- [cat_N_idx.md](tables/cat_N_idx.md) - Тарифные категории каталога (эта таблица не используется для каталога разовых услуг) N – cat_num из catalog
+- [cat_we_bonus.md](tables/cat_we_bonus.md) - Скидки выходного дня для каталога
+- [ccAAAYYYYMMDD.md](tables/ccAAAYYYYMMDD.md) - Таблица со статистикой разовых услуг агента IVOX
+- [config.md](tables/config.md) - Интерфейсы агента
+- [day.md](tables/day.md) - Дневная статистика (формируется из данных в таблице userYYYYMMDD)
+- [devicegrps.md](tables/devicegrps.md) - Группы устройств (кроме описания содержит также иерархию)
+- [deviceparms.md](tables/deviceparms.md) - Параметры для устройства/группы устройств/порта устройства. Предполагается, что только одно из полей *_id != 0
+- [deviceport2grp.md](tables/deviceport2grp.md) - Привязка портов устройств к учетным записям
+- [deviceports.md](tables/deviceports.md) - Порты устройства
+- [devices.md](tables/devices.md) - Экземпляры устройств
+- [devtypegrps.md](tables/devtypegrps.md) - Группы портов для типов устройств (содержит параметры, общие для всех портов данной группы )
+- [devtypeparms.md](tables/devtypeparms.md) - Параметры для типа устройства/группы портов/порта типа. Предполагается, что только одно из полей *_id != 0
+- [devtypeport2grp.md](tables/devtypeport2grp.md) - Привязка портов типов устройств к группам портов
+- [devtypeports.md](tables/devtypeports.md) - Порты типа устройства
+- [devtypes.md](tables/devtypes.md) - Типы устройств
+- [dictionary.md](tables/dictionary.md) - Словарь RADIUS атрибутов
+- [diff.md](tables/diff.md) - Порты для дифференцирования трафика агентом
+- [discounts.md](tables/discounts.md) - Скидки по объему (льготы)
+- [documents.md](tables/documents.md) - Пользовательские отчетные документы
+- [groups.md](tables/groups.md) - Объединения (учетных записей)
+- [gr_staff.md](tables/gr_staff.md) - Состав объединений
+- [h_post.md](tables/h_post.md) - Таблица сообщений внутреннего хелпдеска
+- [h_tiket.md](tables/h_tiket.md) - Тикеты внутреннего хелпдеска
+- [h_tiket_status.md](tables/h_tiket_status.md) - Статусы хелпдеска
+- [ignorenets.md](tables/ignorenets.md) - Игнорируемые сети
+- [lbInventory.md](tables/lbInventory.md)
+- [mac_staff.md](tables/mac_staff.md) - Транспортные адреса
+- [managers.md](tables/managers.md) - Менеджеры и их полномочия
+- [man_staff.md](tables/man_staff.md) - Принадлежность групп пользователей менеджерам
+- [masqip.md](tables/masqip.md) - Адреса, которыми маскарадит интерфейс
+- [month.md](tables/month.md) - Месячная статистика (формируется из данных в таблице userYYYYMMDD)
+- [month_balances.md](tables/month_balances.md) - Счетчики списаний за месяц (PCDR, PABX, VoIP, IVOX)
+- [operators.md](tables/operators.md) - Операторы
+- [oper_staff.md](tables/oper_staff.md) - Связка операторов с транковыми группами
+- [options.md](tables/options.md) - Общие настройки
+- [orders.md](tables/orders.md) - Счета… и прочие отчетные документы
+- [orders_detail.md](tables/orders_detail.md) - Детализация счетов (в сборках >=11 не используется)
+- [pay_cards.md](tables/pay_cards.md) - Карты оплаты
+- [periodic_chargeAAA.md](tables/periodic_chargeAAA.md) - Таблица со статистикой периодических услуг агента IVOX
+- [phone_replaces.md](tables/phone_replaces.md) - Замена номеров
+- [predstav.md](tables/predstav.md) - Представители
+- [pre_orders.md](tables/pre_orders.md) - Счета на предоплату (в сборках >=11 не используется)
+- [promise_payments.md](tables/promise_payments.md) - Обещанные платежи
+- [radAAAYYYYMMDD.md](tables/radAAAYYYYMMDD.md) - Таблицы с трафиком агента RADIUS (ежедневно создаются агентом)
+- [radAAAYYYYMMDDani.md](tables/radAAAYYYYMMDDani.md) - Статистика авторизаций по RADIUS (таблицы ежедневно создаются агентом)
+- [radblacklog.md](tables/radblacklog.md) - Заблокированные телефонные номера
+- [radius_attrs.md](tables/radius_attrs.md) - дополнительные атрибуты RADIUS-пакетов
+- [rate.md](tables/rate.md) - курс
+- [rentcharge.md](tables/rentcharge.md) - Таблица, фиксирующая списания по абонентской плате
+- [rent_service.md](tables/rent_service.md) - Время последнего снятия а/п
+- [reportsdata.md](tables/reportsdata.md)
+- [reportYYYYmm.md](tables/reportYYYYmm.md) - Аггрегированные данные со списаниями за отчетный период
+- [rnas.md](tables/rnas.md) - Сервера доступа
+- [route_weights.md](tables/route_weights.md) - Весовые коэффициенты динамических маршрутов для VoIP
+- [rt_accounts.md](tables/rt_accounts.md) - Выгружаемые пользователи тел. Агентов в формате "Ростелеком"
+- [rt_phones.md](tables/rt_phones.md) - Выгружаемые данные о телефонных номерах в формате "Ростелеком"
+- [sbss_client_classes.md](tables/sbss_client_classes.md) - Классы клиентов HelpDesk
+- [sbss_crm_files.md](tables/sbss_crm_files.md) - Прикрепленные файлы CRM системы к пользователю
+- [sbss_knowledge.md](tables/sbss_knowledge.md) - Темы базы знания HelpDesk
+- [sbss_knowledge_posts__1.md](tables/sbss_knowledge_posts__1.md) - sbss_knowledge_posts - Сообщения базы знаний
+- [sbss_knowledge_posts__2.md](tables/sbss_knowledge_posts__2.md) - sbss_knowledge_posts - Файлы прикрепленные к сообщениям базы знаний
+- [sbss_posts.md](tables/sbss_posts.md) - Таблица сообщений внутреннего хелпдеска
+- [sbss_posts_files.md](tables/sbss_posts_files.md) - Данные о прикрепленных файлах к сообщениям запросов (HelpDesk)
+- [sbss_request_classes.md](tables/sbss_request_classes.md) - Классы запросов в HelpDesk
+- [sbss_statuses.md](tables/sbss_statuses.md) - Статусы запросов HelpDesk
+- [sbss_tickets.md](tables/sbss_tickets.md) - Таблица запросов helpdesk-a
+- [segments.md](tables/segments.md) - Сегменты подучетные агенту
+- [serv_func.md](tables/serv_func.md) - Сервисные функции
+- [sessionsradius.md](tables/sessionsradius.md) - Активные сессии для агентов типа Radius
+- [settings.md](tables/settings.md) - Конфигурацию агента
+- [share.md](tables/share.md) - Опции
+- [stab.md](tables/stab.md) - Даты последних выгрузок в отчетные таблицы (в unixtime)
+- [staff.md](tables/staff.md) - Адресные пространства учетных записей
+- [tarifs.md](tables/tarifs.md) - Тарифы
+- [tarifs_rasp.md](tables/tarifs_rasp.md) - Расписание смены тарифных планов
+- [tarifs_staff__1.md](tables/tarifs_staff__1.md) - tarifs_staff - Список доступных тарифов для смены по расписанию в клиентском интерфейсе
+- [tarifs_staff__2.md](tables/tarifs_staff__2.md) - tarifs_staff - Доступные тарифы для смены по расписанию из кл. интф для объединения
+- [telAAAYYYYMMDD.md](tables/telAAAYYYYMMDD.md) - Статистика агента PABX (автоматически генерируются агентом)
+- [tel_staff.md](tables/tel_staff.md) - Телефоны, присвоеные учетным записям
+- [templates.md](tables/templates.md) - Шаблоны документов
+- [trusted.md](tables/trusted.md) - Таблица с доверенными хостами, для которых разрешен доступ к API без авторизации
+- [userAAAYYYYMMDD.md](tables/userAAAYYYYMMDD.md) - первичная статистика кабельных агентов (таблицы ежедневно создаются агентом)
+- [usergroups.md](tables/usergroups.md) - группы пользователей
+- [usergroups_staff.md](tables/usergroups_staff.md) - Состав групп пользователей
+- [user_acts.md](tables/user_acts.md) - Не используется в сборках >=11
+- [vgroups.md](tables/vgroups.md) - Учетные записи
+- [vg_backup.md](tables/vg_backup.md) - Информация о изменении учетных записей (заполняется значениями из vgroups)
+- [vg_blocks.md](tables/vg_blocks.md) - Журнал блокировок учетных записей
+- [vg_det.md](tables/vg_det.md) - Таблица с описанием детализации трафика по каждой группе
+- [voipsessions.md](tables/voipsessions.md) - активные сессии для агента типа VoIP Radius
+- [weekends.md](tables/weekends.md) - Календарь
+- [we_bonus.md](tables/we_bonus.md) - Определяет скидку в выходной день
+- [year.md](tables/year.md) - Годовая статистика
+- [__ccperiodiс.md](tables/__ccperiodiс.md) - "Внешняя" таблица с данными о переодических услугах (агент IVOX)
+- [__ccservicesYYYYMMDD.md](tables/__ccservicesYYYYMMDD.md) - "Внешняя" таблица с данными о разовых услугах (агент IVOX)
+- [__clients.md](tables/__clients.md) - Таблица экспорта данных об обонентах во внешнюю систему (поля идентичны vgroups)
+- [__newclients.md](tables/__newclients.md) - Таблица импорта новых пользователей (IVOX)

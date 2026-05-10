@@ -1,0 +1,3 @@
+# lbInventory
+| Field | Type | Description |
+|---|---|---|
