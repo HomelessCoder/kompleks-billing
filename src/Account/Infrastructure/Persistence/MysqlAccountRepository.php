@@ -5,14 +5,20 @@ declare(strict_types=1);
 namespace LanBilling\Account\Infrastructure\Persistence;
 
 use LanBilling\Account\Domain\Model\Account;
+use LanBilling\Account\Domain\Persistence\IAccountRepository;
 use Modular\Persistence\Repository\AbstractGenericRepository;
 use Override;
 
 /**
  * @extends AbstractGenericRepository<Account>
  */
-final class MysqlAccountRepository extends AbstractGenericRepository
+final class MysqlAccountRepository extends AbstractGenericRepository implements IAccountRepository
 {
+    public function getAccounts(): array
+    {
+        return $this->findBy();
+    }
+
     #[Override]
     protected function getTableName(): string
     {
