@@ -6,9 +6,12 @@ namespace LanBilling\AccountRead;
 
 use LanBilling\Account\AccountModule;
 use LanBilling\Account\Domain\Persistence\IAccountRepository;
+use LanBilling\AccountRead\Domain\Persistence\IAccountUsergroupLinkRepository;
 use LanBilling\AccountRead\Domain\Persistence\IAccountVgroupLinkRepository;
 use LanBilling\AccountRead\Infrastructure\Persistence\Hydrator;
+use LanBilling\AccountRead\Infrastructure\Persistence\MysqlAccountUsergroupLinkRepository;
 use LanBilling\AccountRead\Infrastructure\Persistence\MysqlAccountVgroupLinkRepository;
+use LanBilling\AccountRead\Infrastructure\Persistence\UsergroupLinkHydrator;
 use LanBilling\Foundation\FoundationModule;
 use LanBilling\Foundation\LbDatabase;
 use LanBilling\Vgroup\Domain\Persistence\IVgroupRepository;
@@ -50,6 +53,7 @@ final class AccountReadModule implements
     {
         return [
             IAccountVgroupLinkRepository::class,
+            IAccountUsergroupLinkRepository::class,
         ];
     }
 
@@ -65,6 +69,12 @@ final class AccountReadModule implements
         $container->set(IAccountVgroupLinkRepository::class, MysqlAccountVgroupLinkRepository::class)->addArguments([
             LbDatabase::class,
             Hydrator::class,
+            FoundationModule::ACCOUNT_STATEMENT_FACTORY,
+        ]);
+        $container->set(UsergroupLinkHydrator::class, UsergroupLinkHydrator::class);
+        $container->set(IAccountUsergroupLinkRepository::class, MysqlAccountUsergroupLinkRepository::class)->addArguments([
+            LbDatabase::class,
+            UsergroupLinkHydrator::class,
             FoundationModule::ACCOUNT_STATEMENT_FACTORY,
         ]);
 

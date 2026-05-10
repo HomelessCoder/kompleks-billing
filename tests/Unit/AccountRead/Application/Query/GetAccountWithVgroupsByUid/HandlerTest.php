@@ -32,6 +32,11 @@ final class HandlerTest extends TestCase
             {
                 return null;
             }
+
+            public function getAccountsByUids(array $uids): array
+            {
+                return [];
+            }
         };
 
         $linkRepository = new class () implements IAccountVgroupLinkRepository {
@@ -90,6 +95,11 @@ final class HandlerTest extends TestCase
             public function getAccountByUid(int $uid): ?Account
             {
                 return $uid === $this->account->uid ? $this->account : null;
+            }
+
+            public function getAccountsByUids(array $uids): array
+            {
+                return in_array($this->account->uid, $uids, true) ? [$this->account] : [];
             }
         };
 
@@ -154,6 +164,11 @@ final class HandlerTest extends TestCase
             public function getAccountByUid(int $uid): ?Account
             {
                 return $uid === $this->account->uid ? $this->account : null;
+            }
+
+            public function getAccountsByUids(array $uids): array
+            {
+                return in_array($this->account->uid, $uids, true) ? [$this->account] : [];
             }
         };
 
