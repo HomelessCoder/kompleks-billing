@@ -14,6 +14,7 @@ use Override;
  */
 final class MysqlAccountRepository extends AbstractGenericRepository implements IAccountRepository
 {
+    #[Override]
     public function getAccounts(): array
     {
         return $this->findBy();

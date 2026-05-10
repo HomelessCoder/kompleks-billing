@@ -11,8 +11,9 @@
     },
     "require": {
         "power-modules/framework": "^2.2",
-        "power-modules/persistence": "^0.4.1",
-        "vlucas/phpdotenv": "^5.6"
+        "power-modules/persistence": "^0.4.2",
+        "vlucas/phpdotenv": "^5.6",
+        "power-modules/console": "^0.3.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",

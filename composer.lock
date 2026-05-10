@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5903c660eac071bb3bbf3f2467eb154b",
+    "content-hash": "d2e2dd3eac9cd2cc7a59b059529bc191",
     "packages": [
         {
             "name": "brick/math",
@@ -324,16 +324,16 @@
         },
         {
             "name": "power-modules/persistence",
-            "version": "v0.4.1",
+            "version": "v0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/power-modules/persistence.git",
-                "reference": "73b8a40fd1c7627bc2f343c5efdfa7dd1ba1efc0"
+                "reference": "86c4d76a9a1a021b8649aa92818755cd0c0af2c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/power-modules/persistence/zipball/73b8a40fd1c7627bc2f343c5efdfa7dd1ba1efc0",
-                "reference": "73b8a40fd1c7627bc2f343c5efdfa7dd1ba1efc0",
+                "url": "https://api.github.com/repos/power-modules/persistence/zipball/86c4d76a9a1a021b8649aa92818755cd0c0af2c2",
+                "reference": "86c4d76a9a1a021b8649aa92818755cd0c0af2c2",
                 "shasum": ""
             },
             "require": {
@@ -374,9 +374,9 @@
             ],
             "support": {
                 "issues": "https://github.com/power-modules/persistence/issues",
-                "source": "https://github.com/power-modules/persistence/tree/v0.4.1"
+                "source": "https://github.com/power-modules/persistence/tree/v0.4.2"
             },
-            "time": "2026-05-08T15:14:07+00:00"
+            "time": "2026-05-10T19:24:44+00:00"
         },
         {
             "name": "psr/container",
