@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LanBilling\Foundation;
 
 use DateTimeImmutable;
+use UnexpectedValueException;
 
 final class HydratorValueHelper
 {
@@ -44,6 +45,28 @@ final class HydratorValueHelper
         }
 
         return new DateTimeImmutable((string) $value);
+    }
+
+    public static function hydrateRequiredInt(mixed $value, string $field): int
+    {
+        $intValue = self::hydrateInt($value);
+
+        if ($intValue !== null) {
+            return $intValue;
+        }
+
+        throw new UnexpectedValueException(sprintf('Expected non-null int for %s.', $field));
+    }
+
+    public static function hydrateRequiredDateTime(mixed $value, string $field): DateTimeImmutable
+    {
+        $dateTime = self::hydrateDateTime($value);
+
+        if ($dateTime !== null) {
+            return $dateTime;
+        }
+
+        throw new UnexpectedValueException(sprintf('Expected non-null datetime for %s.', $field));
     }
 
     public static function dehydrateBool(?bool $value): ?int
