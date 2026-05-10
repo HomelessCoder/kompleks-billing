@@ -33,5 +33,6 @@
 ## Implementation Guidance
 
 - Normalize legacy quirks at the infrastructure boundary, especially nullable fields, coded integers, and zero-date values.
+- When documenting domain models, source field descriptions from `share/table_fields/**/*.md`; use class-level `@property-read` phpdoc for readonly object models, and put value descriptions on individual enum cases because enum-level value summaries are not surfaced reliably.
 - When vendor functionality is missing in the `power-modules` ecosystem, prefer extending the vendor package and consuming the released version through Composer rather than building local framework workarounds.
 - Keep new code aligned with the existing module layout and the read-only system goal.
