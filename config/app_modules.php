@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use LanBilling\Account\AccountModule;
+use LanBilling\AccountRead\AccountReadModule;
 use LanBilling\Foundation\FoundationModule;
 use LanBilling\Vgroup\VgroupModule;
 use Modular\Persistence\PersistenceModule;
@@ -12,4 +13,5 @@ return [
     FoundationModule::class,
     AccountModule::class,
     VgroupModule::class,
+    AccountReadModule::class,
 ];

@@ -12,4 +12,6 @@ interface IAccountRepository
      * @return array<Account>
      */
     public function getAccounts(): array;
+
+    public function getAccountByUid(int $uid): ?Account;
 }

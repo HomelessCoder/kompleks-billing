@@ -12,4 +12,10 @@ interface IVgroupRepository
      * @return array<Vgroup>
      */
     public function getVgroups(): array;
+
+    /**
+     * @param array<int> $vgIds
+     * @return array<Vgroup>
+     */
+    public function getVgroupsByIds(array $vgIds): array;
 }

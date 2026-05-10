@@ -21,6 +21,12 @@ final class MysqlAccountRepository extends AbstractGenericRepository implements 
     }
 
     #[Override]
+    public function getAccountByUid(int $uid): ?Account
+    {
+        return $this->find($uid);
+    }
+
+    #[Override]
     protected function getTableName(): string
     {
         return Schema::getTableName();
