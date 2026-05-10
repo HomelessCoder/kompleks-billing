@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+use Modular\Console\PowerModule\Setup\ConsoleCommandsSetup;
+use Modular\Framework\App\ModularAppBuilder;
+use Modular\Persistence\PersistenceModule;
+use Symfony\Component\Console\Application;
+
+// Load environment variables
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeLoad();
+
+$modules = array_merge(
+    [
+        PersistenceModule::class,
+    ],
+    require __DIR__ . '/../config/app_modules.php',
+);
+
+$app = new ModularAppBuilder(__DIR__ . '/..')
+    ->withModules(...$modules)
+    ->withPowerSetup(
+        new ConsoleCommandsSetup(),
+    )
+    ->build()
+;
+
+$symfonyApplication = $app->get(Application::class);
+$symfonyApplication->run();
