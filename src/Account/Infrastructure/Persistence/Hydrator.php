@@ -23,12 +23,12 @@ final class Hydrator implements IHydrator
     public function hydrate(array $data): mixed
     {
         return new Account(
-            (int) $data[Schema::Uid->value],
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::Uid->value] ?? null, Schema::Uid->value),
             HydratorValueHelper::hydrateString($data[Schema::Login->value]),
             HydratorValueHelper::hydrateString($data[Schema::Pass->value]),
             HydratorValueHelper::hydrateBool($data[Schema::Ipaccess->value]),
             $this->hydrateAccountType($data[Schema::Type->value]),
-            (float) $data[Schema::Balance->value],
+            HydratorValueHelper::hydrateRequiredFloat($data[Schema::Balance->value] ?? null, Schema::Balance->value),
             HydratorValueHelper::hydrateFloat($data[Schema::Depth->value]),
             HydratorValueHelper::hydrateString($data[Schema::Descr->value]),
             HydratorValueHelper::hydrateString($data[Schema::Name->value]),
@@ -97,14 +97,14 @@ final class Hydrator implements IHydrator
             HydratorValueHelper::hydrateString($data[Schema::Birthdate->value]),
             HydratorValueHelper::hydrateString($data[Schema::Birthplace->value]),
             HydratorValueHelper::hydrateDateTime($data[Schema::LastModDate->value]),
-            (int) $data[Schema::WrongActive->value],
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::WrongActive->value] ?? null, Schema::WrongActive->value),
             HydratorValueHelper::hydrateDateTime($data[Schema::WrongDate->value]),
             $this->hydrateDiplomatStatus($data[Schema::Diplomat->value]),
             $this->hydrateResidentStatus($data[Schema::Resident->value]),
-            (int) $data[Schema::AgrmType->value],
-            (int) $data[Schema::Oksm->value],
-            (string) $data[Schema::Okato->value],
-            (bool) $data[Schema::PublicAgree->value],
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::AgrmType->value] ?? null, Schema::AgrmType->value),
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::Oksm->value] ?? null, Schema::Oksm->value),
+            HydratorValueHelper::hydrateRequiredString($data[Schema::Okato->value] ?? null, Schema::Okato->value),
+            HydratorValueHelper::hydrateRequiredBool($data[Schema::PublicAgree->value] ?? null, Schema::PublicAgree->value),
         );
     }
 

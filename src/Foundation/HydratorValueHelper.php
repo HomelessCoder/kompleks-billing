@@ -29,6 +29,17 @@ final class HydratorValueHelper
         return null === $value ? null : (bool) $value;
     }
 
+    public static function hydrateRequiredString(mixed $value, string $field): string
+    {
+        $stringValue = self::hydrateString($value);
+
+        if ($stringValue !== null) {
+            return $stringValue;
+        }
+
+        throw new UnexpectedValueException(sprintf('Expected non-null string for %s.', $field));
+    }
+
     public static function hydrateDateTime(mixed $value): ?DateTimeImmutable
     {
         if ($value === null || $value === '0000-00-00 00:00:00') {
@@ -56,6 +67,28 @@ final class HydratorValueHelper
         }
 
         throw new UnexpectedValueException(sprintf('Expected non-null int for %s.', $field));
+    }
+
+    public static function hydrateRequiredFloat(mixed $value, string $field): float
+    {
+        $floatValue = self::hydrateFloat($value);
+
+        if ($floatValue !== null) {
+            return $floatValue;
+        }
+
+        throw new UnexpectedValueException(sprintf('Expected non-null float for %s.', $field));
+    }
+
+    public static function hydrateRequiredBool(mixed $value, string $field): bool
+    {
+        $boolValue = self::hydrateBool($value);
+
+        if ($boolValue !== null) {
+            return $boolValue;
+        }
+
+        throw new UnexpectedValueException(sprintf('Expected non-null bool for %s.', $field));
     }
 
     public static function hydrateRequiredDateTime(mixed $value, string $field): DateTimeImmutable

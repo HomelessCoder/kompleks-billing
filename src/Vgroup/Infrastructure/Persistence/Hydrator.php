@@ -24,9 +24,9 @@ final class Hydrator implements IHydrator
     public function hydrate(array $data): mixed
     {
         return new Vgroup(
-            (int) $data[Schema::VgId->value],
-            (int) $data[Schema::CLimit->value],
-            (int) $data[Schema::DLimit->value],
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::VgId->value] ?? null, Schema::VgId->value),
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::CLimit->value] ?? null, Schema::CLimit->value),
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::DLimit->value] ?? null, Schema::DLimit->value),
             HydratorValueHelper::hydrateDate($data[Schema::DClear->value]),
             HydratorValueHelper::hydrateString($data[Schema::Login->value]),
             HydratorValueHelper::hydrateString($data[Schema::Pass->value]),
@@ -59,8 +59,8 @@ final class Hydrator implements IHydrator
             $this->hydrateZeroCrossingType($data[Schema::ZcType->value]),
             HydratorValueHelper::hydrateInt($data[Schema::PrevCLimit->value]),
             HydratorValueHelper::hydrateDate($data[Schema::AccOnplandate->value]),
-            (string) $data[Schema::Comments->value],
-            (int) $data[Schema::WrongActive->value],
+            HydratorValueHelper::hydrateRequiredString($data[Schema::Comments->value] ?? null, Schema::Comments->value),
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::WrongActive->value] ?? null, Schema::WrongActive->value),
             HydratorValueHelper::hydrateDateTime($data[Schema::WrongDate->value]),
             HydratorValueHelper::hydrateInt($data[Schema::Operator->value]),
             HydratorValueHelper::hydrateBool($data[Schema::UseAs->value]),

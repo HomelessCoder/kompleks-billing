@@ -27,7 +27,7 @@ final class Hydrator implements IHydrator
             modPerson: HydratorValueHelper::hydrateInt($data[Schema::ModPerson->value] ?? null),
             billNum: HydratorValueHelper::hydrateString($data[Schema::BillNum->value] ?? null),
             billDescr: HydratorValueHelper::hydrateString($data[Schema::BillDescr->value] ?? null),
-            isOrder: (bool) HydratorValueHelper::hydrateRequiredInt($data[Schema::IsOrder->value] ?? null, Schema::IsOrder->value),
+            isOrder: HydratorValueHelper::hydrateRequiredBool($data[Schema::IsOrder->value] ?? null, Schema::IsOrder->value),
             orderId: HydratorValueHelper::hydrateInt($data[Schema::OrderId->value] ?? null),
             remoteDate: HydratorValueHelper::hydrateDateTime($data[Schema::RemoteDate->value] ?? null),
             cancelDate: HydratorValueHelper::hydrateDateTime($data[Schema::CancelDate->value] ?? null),

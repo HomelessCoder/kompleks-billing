@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LanBilling\AccountRead\Infrastructure\Persistence;
 
 use LanBilling\AccountRead\Domain\Model\AccountVgroupLink;
+use LanBilling\Foundation\HydratorValueHelper;
 use Modular\Persistence\Schema\Contract\IHydrator;
 use Override;
 
@@ -17,8 +18,8 @@ final class Hydrator implements IHydrator
     public function hydrate(array $data): mixed
     {
         return new AccountVgroupLink(
-            (int) $data[Schema::Uid->value],
-            (int) $data[Schema::VgId->value],
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::Uid->value] ?? null, Schema::Uid->value),
+            HydratorValueHelper::hydrateRequiredInt($data[Schema::VgId->value] ?? null, Schema::VgId->value),
         );
     }
 
