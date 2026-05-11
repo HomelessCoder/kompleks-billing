@@ -12,6 +12,8 @@ use LanBilling\AccountRead\Infrastructure\Persistence\Hydrator;
 use LanBilling\AccountRead\Infrastructure\Persistence\MysqlAccountUsergroupLinkRepository;
 use LanBilling\AccountRead\Infrastructure\Persistence\MysqlAccountVgroupLinkRepository;
 use LanBilling\AccountRead\Infrastructure\Persistence\UsergroupLinkHydrator;
+use LanBilling\Agreement\AgreementModule;
+use LanBilling\Agreement\Domain\Persistence\IAgreementRepository;
 use LanBilling\Foundation\FoundationModule;
 use LanBilling\Foundation\LbDatabase;
 use LanBilling\Vgroup\Domain\Persistence\IVgroupRepository;
@@ -40,6 +42,10 @@ final class AccountReadModule implements
             ImportItem::create(
                 AccountModule::class,
                 IAccountRepository::class,
+            ),
+            ImportItem::create(
+                AgreementModule::class,
+                IAgreementRepository::class,
             ),
             ImportItem::create(
                 VgroupModule::class,
