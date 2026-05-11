@@ -60,13 +60,17 @@ final class AccountReadModule implements
         return [
             IAccountVgroupLinkRepository::class,
             IAccountUsergroupLinkRepository::class,
+            \LanBilling\AccountRead\Application\Query\GetAccountDetailsByUid\Handler::class,
         ];
     }
 
     #[Override]
     public function register(ConfigurableContainerInterface $container): void
     {
-        $this->persistence($container);
+        $this
+            ->persistence($container)
+            ->application($container)
+        ;
     }
 
     private function persistence(ConfigurableContainerInterface $container): self
@@ -82,6 +86,18 @@ final class AccountReadModule implements
             LbDatabase::class,
             UsergroupLinkHydrator::class,
             FoundationModule::ACCOUNT_STATEMENT_FACTORY,
+        ]);
+
+        return $this;
+    }
+
+    private function application(ConfigurableContainerInterface $container): self
+    {
+        $container->set(\LanBilling\AccountRead\Application\Query\GetAccountDetailsByUid\Handler::class, \LanBilling\AccountRead\Application\Query\GetAccountDetailsByUid\Handler::class)->addArguments([
+            IAccountRepository::class,
+            IAccountVgroupLinkRepository::class,
+            IVgroupRepository::class,
+            IAgreementRepository::class,
         ]);
 
         return $this;
