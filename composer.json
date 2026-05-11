@@ -1,6 +1,5 @@
 {
     "name": "homelescoder/lanbilling",
-    "version": "0.1.0",
     "description": "A billing system for local area networks.",
     "autoload": {
         "psr-4": {
