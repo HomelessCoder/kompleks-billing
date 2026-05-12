@@ -38,6 +38,7 @@ final class BillModule implements
     {
         return [
             IBillRepository::class,
+            \LanBilling\Bill\Application\Query\ListBillsByAccountUid\Handler::class,
         ];
     }
 
@@ -54,6 +55,13 @@ final class BillModule implements
             LbDatabase::class,
             Hydrator::class,
             FoundationModule::ACCOUNT_STATEMENT_FACTORY,
+        ]);
+
+        $container->set(
+            \LanBilling\Bill\Application\Query\ListBillsByAccountUid\Handler::class,
+            \LanBilling\Bill\Application\Query\ListBillsByAccountUid\Handler::class,
+        )->addArguments([
+            IBillRepository::class,
         ]);
 
         return $this;
