@@ -7,6 +7,7 @@ use LanBilling\AccountRead\AccountReadModule;
 use LanBilling\Agreement\AgreementModule;
 use LanBilling\Bill\BillModule;
 use LanBilling\Foundation\FoundationModule;
+use LanBilling\Tariff\TariffModule;
 use LanBilling\Vgroup\VgroupModule;
 use Modular\Persistence\PersistenceModule;
 
@@ -17,5 +18,6 @@ return [
     AgreementModule::class,
     VgroupModule::class,
     BillModule::class,
+    TariffModule::class,
     AccountReadModule::class,
 ];
