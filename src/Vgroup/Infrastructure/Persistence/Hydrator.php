@@ -144,8 +144,8 @@ final class Hydrator implements IHydrator
     {
         return match ($value) {
             null => null,
-            0, '0' => VgroupStatus::DoNotDisable,
-            1, '1' => VgroupStatus::AutoDisable,
+            0 => VgroupStatus::DoNotDisable,
+            1 => VgroupStatus::AutoDisable,
             default => throw new \UnexpectedValueException(sprintf('Unknown vgroup status: %s', (string) $value)),
         };
     }
@@ -163,10 +163,10 @@ final class Hydrator implements IHydrator
     {
         return match ($value) {
             null => null,
-            0, '0' => VgroupBlockRequest::None,
-            1, '1' => VgroupBlockRequest::Balance,
-            2, '2' => VgroupBlockRequest::User,
-            3, '3' => VgroupBlockRequest::Administrator,
+            0 => VgroupBlockRequest::None,
+            1 => VgroupBlockRequest::Balance,
+            2 => VgroupBlockRequest::User,
+            3 => VgroupBlockRequest::Administrator,
             default => throw new \UnexpectedValueException(sprintf('Unknown vgroup block request: %s', (string) $value)),
         };
     }
@@ -186,12 +186,12 @@ final class Hydrator implements IHydrator
     {
         return match ($value) {
             null => null,
-            0, '0' => VgroupBlockState::Unblocked,
-            1, '1' => VgroupBlockState::Balance,
-            2, '2' => VgroupBlockState::User,
-            3, '3' => VgroupBlockState::Administrator,
-            4, '4' => VgroupBlockState::Active,
-            5, '5' => VgroupBlockState::PeriodLimit,
+            0 => VgroupBlockState::Unblocked,
+            1 => VgroupBlockState::Balance,
+            2 => VgroupBlockState::User,
+            3 => VgroupBlockState::Administrator,
+            4 => VgroupBlockState::Active,
+            5 => VgroupBlockState::PeriodLimit,
             default => throw new \UnexpectedValueException(sprintf('Unknown vgroup block state: %s', (string) $value)),
         };
     }
@@ -213,10 +213,10 @@ final class Hydrator implements IHydrator
     {
         return match ($value) {
             null => null,
-            0, '0' => VgroupChangeState::NotRequired,
-            3, '3' => VgroupChangeState::New,
-            4, '4' => VgroupChangeState::Changed,
-            5, '5' => VgroupChangeState::Deleted,
+            0 => VgroupChangeState::NotRequired,
+            3 => VgroupChangeState::New,
+            4 => VgroupChangeState::Changed,
+            5 => VgroupChangeState::Deleted,
             default => throw new \UnexpectedValueException(sprintf('Unknown vgroup change state: %s', (string) $value)),
         };
     }
@@ -236,9 +236,9 @@ final class Hydrator implements IHydrator
     {
         return match ($value) {
             null => null,
-            1, '1' => VgroupTrafficType::Incoming,
-            2, '2' => VgroupTrafficType::Outgoing,
-            3, '3' => VgroupTrafficType::Total,
+            1 => VgroupTrafficType::Incoming,
+            2 => VgroupTrafficType::Outgoing,
+            3 => VgroupTrafficType::Total,
             default => throw new \UnexpectedValueException(sprintf('Unknown vgroup traffic type: %s', (string) $value)),
         };
     }
@@ -256,10 +256,10 @@ final class Hydrator implements IHydrator
     private function hydrateZeroCrossingType(mixed $value): ?ZeroCrossingType
     {
         return match ($value) {
-            null => null,
-            1, '1' => ZeroCrossingType::UsageCharge,
-            2, '2' => ZeroCrossingType::SubscriptionFee,
-            3, '3' => ZeroCrossingType::NegativeChargeReversal,
+            null, 0 => null,
+            1 => ZeroCrossingType::UsageCharge,
+            2 => ZeroCrossingType::SubscriptionFee,
+            3 => ZeroCrossingType::NegativeChargeReversal,
             default => throw new \UnexpectedValueException(sprintf('Unknown zero crossing type: %s', (string) $value)),
         };
     }
