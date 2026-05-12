@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LanBilling\Account;
 
+use LanBilling\Account\Application\Query\GetAccount\Handler as GetAccountHandler;
 use LanBilling\Account\Domain\Persistence\IAccountRepository;
 use LanBilling\Account\Infrastructure\Persistence\Hydrator;
 use LanBilling\Account\Infrastructure\Persistence\MysqlAccountRepository;
@@ -38,13 +39,17 @@ final class AccountModule implements
     {
         return [
             IAccountRepository::class,
+            GetAccountHandler::class,
         ];
     }
 
     #[Override]
     public function register(ConfigurableContainerInterface $container): void
     {
-        $this->persistence($container);
+        $this
+            ->persistence($container)
+            ->application($container)
+        ;
     }
 
     private function persistence(ConfigurableContainerInterface $container): self
@@ -54,6 +59,15 @@ final class AccountModule implements
             LbDatabase::class,
             Hydrator::class,
             FoundationModule::ACCOUNT_STATEMENT_FACTORY,
+        ]);
+
+        return $this;
+    }
+
+    private function application(ConfigurableContainerInterface $container): self
+    {
+        $container->set(GetAccountHandler::class, GetAccountHandler::class)->addArguments([
+            IAccountRepository::class,
         ]);
 
         return $this;
